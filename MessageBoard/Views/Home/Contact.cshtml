@@ -81,7 +81,11 @@
                             </div>
                             <!-- Form button -->
                             <button class="btn btn-danger btn-sm" type="submit">Send</button>&nbsp;
-                            <button class="btn btn-default btn-sm" type="reset">Reset</button>
+                            <button class="btn btn-default btn-sm" type="reset">Reset</button> 
+                            @if (ViewBag.MailSent != null && ViewBag.MailSent)
+                            {
+                                <div>Mail Sent!</div>
+                            }
                         </form>
                     </div><!--/ Contact form end -->
                 </div>

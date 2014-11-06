@@ -35,7 +35,10 @@ namespace MessageBoard.Controllers
             var svc = new MailService();
             var subject = String.Format("Contact Page: from {0} - {1}", contact.Name, contact.Email);
 
-            svc.SendMail(contact.Email, "pedro.maximiano@gmail.com", subject, contact.Message);
+            if (svc.SendMail(contact.Email, "pedro.maximiano@gmail.com", subject, contact.Message))
+            {
+                ViewBag.MailSent = true;
+            }
 
             return View();
         }
