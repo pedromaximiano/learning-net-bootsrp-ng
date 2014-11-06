@@ -10,6 +10,13 @@ namespace MessageBoard.Controllers
 {
     public class HomeController : Controller
     {
+        private IMailService _mail;
+
+        public HomeController(IMailService mail)
+        {
+            _mail = mail;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -32,10 +39,9 @@ namespace MessageBoard.Controllers
         [HttpPost]
         public ActionResult Contact(ContactModel contact)
         {
-            var svc = new MailService();
             var subject = String.Format("Contact Page: from {0} - {1}", contact.Name, contact.Email);
 
-            if (svc.SendMail(contact.Email, "pedro.maximiano@gmail.com", subject, contact.Message))
+            if (_mail.SendMail(contact.Email, "pedro.maximiano@gmail.com", subject, contact.Message))
             {
                 ViewBag.MailSent = true;
             }
