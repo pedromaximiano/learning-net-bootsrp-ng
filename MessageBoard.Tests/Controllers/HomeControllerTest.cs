@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using MessageBoard.Services;
+using MessageBoard.Tests.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MessageBoard;
 using MessageBoard.Controllers;
 
 namespace MessageBoard.Tests.Controllers
@@ -12,11 +9,19 @@ namespace MessageBoard.Tests.Controllers
     [TestClass]
     public class HomeControllerTest
     {
+        private IMailService _mailService;
+        
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            _mailService = new MockMailService();            
+        }
+        
         [TestMethod]
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(_mailService);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -29,7 +34,7 @@ namespace MessageBoard.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(_mailService);
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +47,7 @@ namespace MessageBoard.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(_mailService);
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;
