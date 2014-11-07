@@ -10,5 +10,9 @@ namespace MessageBoard.Data
     {
         IQueryable<Topic> GetTopics();
         IQueryable<Reply> GetRepliesByTopic(int topicId);
+        IQueryable<Topic> GetTopicsIncludingReplies();
+        bool Save();
+        bool AddTopic(Topic topic);
+        bool AddReply(Reply reply);
     }
 }

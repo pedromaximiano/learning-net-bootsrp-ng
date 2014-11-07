@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Net.Mail;
-using System.Web;
-using Microsoft.Owin.Security.Twitter.Messages;
 
 namespace MessageBoard.Services
 {
@@ -20,7 +17,8 @@ namespace MessageBoard.Services
             }
             catch (Exception ex)
             {
-                // Add logging
+                Debug.WriteLine(ex.Message);
+
                 return false;
             }
 

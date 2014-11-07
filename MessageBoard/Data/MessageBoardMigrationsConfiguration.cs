@@ -19,7 +19,7 @@ namespace MessageBoard.Data
             base.Seed(context);
 
 #if DEBUG
-            if (context.Topics.Count() == 0)
+            if (!context.Topics.Any())
             {
                 var topic = new Topic()
                 {

@@ -48,6 +48,7 @@ namespace MessageBoard.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
                 return kernel;
             }
             catch
