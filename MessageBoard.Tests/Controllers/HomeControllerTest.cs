@@ -10,11 +10,11 @@ namespace MessageBoard.Tests.Controllers
     public class HomeControllerTest
     {
         private IMailService _mailService;
-        
+
         [TestInitialize]
         public void TestInitialize()
         {
-            _mailService = new MockMailService();            
+            _mailService = new MockMailService();
         }
         
         [TestMethod]
