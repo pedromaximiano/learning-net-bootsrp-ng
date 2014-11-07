@@ -1,6 +1,24 @@
-﻿.foo {
-  width: 100px;
+﻿.message {
+  border: 1px solid #888888;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  margin-left: 0;
+  margin-right: -20px;
 }
-.bar {
-  background: #888888;
+.message .title {
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px #888888;
+}
+.message .reply {
+  border-bottom: 1px solid #888888;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+.message .reply .created {
+  font-size: 9px;
+  margin-left: 15px;
 }

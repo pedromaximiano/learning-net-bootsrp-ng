@@ -27,6 +27,7 @@
     <!-- Custom CSS -->
     <link href="~/Content/Template/css/style.css" rel="stylesheet">
     <!--[if IE]><link rel="stylesheet" href="~/Content/Template/css/ie-style.css"><![endif]-->
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="#">
 </head>
@@ -183,7 +184,8 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-5">
                         <!-- Link -->
-                        <a href="index.html">
+                        @*<a href="index.html">*@
+                        <a href="@Url.Action("Index")">
                             <!-- Logo area -->
                             <div class="logo">
                                 <img class="img-responsive" src="~/Content/Template/img/logo.png" alt="" />
@@ -211,7 +213,8 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="index.html"><img src="~/Content/Template/img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>
+                                        @*<li><a href="index.html"><img src="~/Content/Template/img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>*@
+                                        <li><a href="@Url.Action("Index")"><img src="~/Content/Template/img/nav-menu/nav1.jpg" class="img-responsive" alt="" /> Home</a></li>
                                         <li class="dropdown hidden-xs">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/Template/img/nav-menu/nav2.jpg" class="img-responsive" alt="" /> Menu <b class="caret"></b></a>
                                             <ul class="dropdown-menu dropdown-md">
@@ -276,7 +279,8 @@
                                                 <li><a href="item-single.html">Order Now</a></li>
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="reserve-seats.html">Reservation</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
+                                                @*<li><a href="contact.html">Contact Us</a></li>*@
+                                                <li>@Html.ActionLink("Contact Us", "Contact")</li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
