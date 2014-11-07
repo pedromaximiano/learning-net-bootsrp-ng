@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MessageBoard.Data;
 using MessageBoard.Models;
 using MessageBoard.Services;
 
@@ -11,15 +12,19 @@ namespace MessageBoard.Controllers
     public class HomeController : Controller
     {
         private IMailService _mail;
+        private IMessageBoardRepository _repo;
 
-        public HomeController(IMailService mail)
+        public HomeController(IMailService mail, IMessageBoardRepository repository)
         {
             _mail = mail;
+            _repo = repository;
         }
 
         public ActionResult Index()
         {
-            return View();
+            var topics = _repo.GetTopics().OrderByDescending(c => c.Created).Take(25).ToList();
+
+            return View(topics);
         }
 
         public ActionResult About()

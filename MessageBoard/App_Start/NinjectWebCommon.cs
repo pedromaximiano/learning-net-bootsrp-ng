@@ -1,3 +1,4 @@
+using MessageBoard.Data;
 using MessageBoard.Services;
 using MessageBoard.Tests.Mocks;
 
@@ -67,6 +68,8 @@ namespace MessageBoard.App_Start
 #else
             kernel.Bind<IMailService>().To<MailService>().InRequestScope();
 #endif
+            kernel.Bind<MessageBoardContext>().To<MessageBoardContext>().InRequestScope();
+            kernel.Bind<IMessageBoardRepository>().To<MessageBoardRepository>().InRequestScope();
         }        
     }
 }
