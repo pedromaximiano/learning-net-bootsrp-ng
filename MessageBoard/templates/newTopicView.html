@@ -1,0 +1,23 @@
+﻿<div>
+    <h3>New Topic</h3>
+    <form name="newTopicForm" class="form-group" novalidate ng-submit="save()">
+        <div class="row">
+            <label for="title" class="">Title</label>
+            <input class="form-control" name="title" type="text" ng-model="newTopic.title" required ng-minlength="5" />      
+            <span class="error" ng-show="newTopicForm.title.$error.required">*</span>
+            <span class="error" ng-show="newTopicForm.title.$error.minlength">Minimum 5 characters</span>
+        </div>
+        <div class="row">
+            <label for="body">Body</label>
+            <textarea class="form-control" name="body" rows="5" cols="30" ng-model="newTopic.body" required ng-minlength="15" />
+            <span class="error" ng-show="newTopicForm.body.$error.required">*</span>                                            
+            <span class="error" ng-show="newTopicForm.body.$error.minlength">Minimum 15 characters</span>
+        </div>
+        <div class="row">
+            <input name="save" type="submit" value="Save" class="btn btn-primary form-control" ng-disabled="newTopicForm.$invalid" />
+        </div>                                                                                   
+        <div class="row">
+            <a href="#" class="btn btn-default form-control">Cancel</a>
+        </div>
+    </form>
+</div>

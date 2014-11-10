@@ -1,7 +1,21 @@
 ﻿// home-index.js
-var angularFormsApp = angular.module("messageBoardApp", []);
+var angularFormsApp = angular.module("homeIndex", ["ngRoute"]);
 
-angularFormsApp.controller("homeIndexController", function homeIndexController($scope, $http) {
+angularFormsApp.config(function ($routeProvider) {
+    $routeProvider.when("/", {
+        controller: "topicsController",
+        templateUrl: "/templates/topicsView.html"
+    });
+
+    $routeProvider.when("/newmessage", {
+        controller: "newTopicController",
+        templateUrl: "/templates/newTopicView.html"
+    });
+
+    $routeProvider.otherwise({ redirectTo: "/" });
+});
+
+angularFormsApp.controller("topicsController", function topicsController($scope, $http) {
     $scope.dataCount = 0;
     $scope.data = [];
     $scope.isBusy = true;
@@ -18,4 +32,21 @@ angularFormsApp.controller("homeIndexController", function homeIndexController($
         }).then(function () {
             $scope.isBusy = false;
         });
+});
+
+angularFormsApp.controller("newTopicController", function newTopicController($scope, $http, $window) {
+    $scope.newTopic = {};
+    $scope.save = function () {
+        $http.post("/api/v1/topics", $scope.newTopic).then(
+            function (result) {
+                // Success
+                var newTopic = result.data;
+                
+                //TODO: merge
+                $window.location = "#/";
+            }, function () {
+                // Error
+                alert("Error saving the new topic");
+            });
+    };
 });

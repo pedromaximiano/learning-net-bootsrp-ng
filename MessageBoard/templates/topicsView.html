@@ -1,0 +1,31 @@
+﻿<div>
+    <div class="message-header">
+        <h2>Message Board</h2>
+        <h3>Latest Messages...</h3>
+        <div><p>Message count: {{dataCount}}</p></div>
+    </div>
+    <div>
+        <a href="#/newmessage" class="btn btn-primary">Add New Message</a>
+    </div>  
+    <p>&nbsp;</p>
+
+    <div class="progress progress-striped active" ng-show="isBusy">
+        <div class="progress-bar" style="width: 100%;"></div>
+    </div>
+
+    <div class="messages">
+        <div class="message row" ng-repeat="msg in data">
+            <div class="title col-md-10">{{msg.title}}</div>
+            <div class="date col-md-2">{{msg.created | date:"medium"}}</div>
+            <div class="contents col-md-12">{{msg.body}}</div>
+            <div class="toolbar col-md-12"><button class="btn btn-primary reply-button">Reply</button></div>
+            <div class="replies col-md-12" ng-repeat="rep in msg.replies">
+                <div class="reply">
+                    <div class="created pull-right">{{rep.created | date:"medium"}}</div>
+                    <div class="content">{{rep.body}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
