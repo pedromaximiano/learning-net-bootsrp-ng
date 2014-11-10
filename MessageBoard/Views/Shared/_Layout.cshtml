@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="messageBoardApp">
 <head>
     <meta charset="utf-8">
     <!-- Title here -->
@@ -8,7 +8,6 @@
     <meta name="description" content="Your description">
     <meta name="keywords" content="Your,Keywords">
     <meta name="author" content="ResponsiveWebInc">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles -->
@@ -433,6 +432,8 @@
     <!-- Javascript files -->
     <!-- jQuery -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!-- AngularJS -->
+    <script src="~/Scripts/angular.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="~/Scripts/bootstrap.min.js"></script>
     <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
@@ -492,7 +493,7 @@
             });
         });
 
-    </script>
+    </script>  
     @RenderSection("scripts", required: false)
 </body>
 </html>
