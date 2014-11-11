@@ -2,7 +2,7 @@
     <div class="message-header">
         <h2>Message Board</h2>
         <h3>Latest Messages...</h3>
-        <div><p>Message count: {{dataCount}}</p></div>
+        <div><p>Message count: {{data.topics.length}}</p></div>
     </div>
     <div>
         <a href="#/newmessage" class="btn btn-primary">Add New Message</a>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="messages">
-        <div class="message row" ng-repeat="msg in data">
+        <div class="message row" ng-repeat="msg in data.topics">
             <div class="title col-md-10">{{msg.title}}</div>
             <div class="date col-md-2">{{msg.created | date:"medium"}}</div>
             <div class="contents col-md-12">{{msg.body}}</div>
