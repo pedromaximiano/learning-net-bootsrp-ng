@@ -68,7 +68,7 @@ angularFormsApp.factory("dataService", function ($http, $q) {
     };
 });
 
-angularFormsApp.controller("topicsController", function topicsController($scope, $http, dataService) {
+angularFormsApp.controller("topicsController", function topicsController($scope, dataService) {
     $scope.dataCount = 0;
     $scope.data = dataService;
     $scope.isBusy = false;
@@ -88,7 +88,7 @@ angularFormsApp.controller("topicsController", function topicsController($scope,
     }
 });
 
-angularFormsApp.controller("newTopicController", function newTopicController($scope, $http, $window, dataService) {
+angularFormsApp.controller("newTopicController", function newTopicController($scope, $window, dataService) {
     $scope.newTopic = {};
     $scope.save = function () {
         dataService.addTopic($scope.newTopic).then(
