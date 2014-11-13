@@ -12,9 +12,15 @@ angularFormsApp.config(function ($routeProvider) {
         templateUrl: "/templates/newTopicView.html"
     });
 
+    $routeProvider.when("/message/:id", {
+        controller: "singleTopicController",
+        templateUrl: "/templates/singleTopicView.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
 });
 
+// dataService angular custom service
 angularFormsApp.factory("dataService", function ($http, $q) {
     var _topics = [];
     var _isInit = false;
@@ -59,12 +65,38 @@ angularFormsApp.factory("dataService", function ($http, $q) {
         return deferred.promise;
     };
 
+    var _getTopicById = function(topicId) {
+        var deferred = $q.defer();
+
+        if (_isReady) {
+            var topic = _findTopic(topicId);
+            
+            if (topic) {
+                
+            }
+        }
+        $http.get("/api/v1/topics?includeReplies=true").then(
+            function (result) {
+                // Success
+                angular.copy(result.data, _topics);
+                _isInit = true;
+                deferred.resolve();
+            },
+            function () {
+                // Error
+                deferred.reject();
+            });
+
+        return deferred.promise;
+    };
+    
 
     return {
         topics: _topics,
         getTopics: _getTopics,
         addTopic: _addTopic,
-        isReady: _isReady
+        isReady: _isReady,
+        getTopicById: _getTopicById
     };
 });
 
@@ -99,5 +131,23 @@ angularFormsApp.controller("newTopicController", function newTopicController($sc
                 // Error
                 alert("Error saving the new topic");
             });
+    };
+});
+
+angularFormsApp.controller("singleTopicController", function singleTopicController($scope, $window, dataService, $routeParams) {
+    $scope.topic = null;
+    $scope.newReply = {};
+
+    dataService.getTopicById($routeParams.id).then(
+        function (topic) {
+            // Success
+            $scope.topic = topic;
+
+        }, function () {
+            // Error
+            $window.location = "#/";
+        });
+    $scope.addReply = function() {
+               
     };
 });

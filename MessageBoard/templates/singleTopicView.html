@@ -1,0 +1,28 @@
+﻿<a href="#/" class="btn btn-primary">Back</a>
+<div class="messages">
+    <div class="message row">
+        <div class="title col-md-10">{{topic.title}}</div>
+        <div class="date col-md-2">{{topic.created | date:"medium"}}</div>
+        <div class="contents col-md-12">{{topic.body}}</div>
+        <div class="replies col-md-12" ng-repeat="rep in topic.replies">
+            <div class="reply">
+                <div class="created pull-right">{{rep.created | date:"medium"}}</div>
+                <div class="content">{{rep.body}}</div>
+            </div>
+        </div>
+    </div>
+    <h3>Add Reply</h3>
+    <form name="newReplyForm" novalidate ng-submit="addReply()">
+        <fieldset>
+            <div class="row">
+                <label for="body">Body</label>
+                <textarea class="form-control" name="body" rows="5" cols="30" ng-model="newReply.body" required ng-minlength="15" />
+                <span class="error" ng-show="newReplyForm.body.$error.required">*</span>
+                <span class="error" ng-show="newReplyForm.body.$error.minlength">Minimum 15 characters</span>
+            </div>
+            <div class="row">
+                <input name="save" type="submit" value="Save" class="btn btn-primary form-control" ng-disabled="newReplyForm.$invalid" />
+            </div>
+        </fieldset>
+    </form>
+</div>

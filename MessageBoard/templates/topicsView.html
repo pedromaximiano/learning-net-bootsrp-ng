@@ -5,7 +5,7 @@
         <div><p>Message count: {{data.topics.length}}</p></div>
     </div>
     <div>
-        <a href="#/newmessage" class="btn btn-primary">Add New Message</a>
+        <a href="#/newmessage" class="btn ">Add New Message</a>
     </div>  
     <p>&nbsp;</p>
 
@@ -15,16 +15,10 @@
 
     <div class="messages">
         <div class="message row" ng-repeat="msg in data.topics">
-            <div class="title col-md-10">{{msg.title}}</div>
+            <a ng-href="#/message/{{msg.id}}" style="cursor: pointer"><div class="title col-md-10">{{msg.title}}</div></a>
             <div class="date col-md-2">{{msg.created | date:"medium"}}</div>
             <div class="contents col-md-12">{{msg.body}}</div>
             <div class="toolbar col-md-12"><button class="btn btn-primary reply-button">Reply</button></div>
-            <div class="replies col-md-12" ng-repeat="rep in msg.replies">
-                <div class="reply">
-                    <div class="created pull-right">{{rep.created | date:"medium"}}</div>
-                    <div class="content">{{rep.body}}</div>
-                </div>
-            </div>
         </div>
 
     </div>
