@@ -395,6 +395,9 @@
     <Content Include="Global.asax" />
     <None Include="Content\Site.less" />
     <Content Include="js\home-index.js" />
+    <Content Include="js\home-index.min.js">
+      <DependentUpon>home-index.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -445,6 +448,9 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="js\home-index.min.js.map">
+      <DependentUpon>home-index.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\custom.min.js">
