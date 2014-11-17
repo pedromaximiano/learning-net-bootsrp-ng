@@ -69,12 +69,22 @@ namespace MessageBoard.Tests.Fakes
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool AddTopic(Topic topic)
         {
-            throw new NotImplementedException();
+            try
+            {
+                topic.Id = 1;
+                _topics.Add(topic);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool AddReply(Reply reply)
