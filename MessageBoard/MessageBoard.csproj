@@ -452,6 +452,8 @@
     <Content Include="js\home-index.min.js.map">
       <DependentUpon>home-index.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\learnapp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\learnapp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\custom.min.js">
